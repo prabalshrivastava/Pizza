@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--
+        In hibernate.cfg.xml,"hibernate." is implicit.
+        Both format_sql and hibernate.format_sql are same and same for the other fields also.
+        -->
+        <property name="format_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="show_sql">true</property>
+
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="hibernate.connection.username">prabal</property>
+        <property name="hibernate.connection.password">prabal</property>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/pizza</property>
+
+        <property name="current_session_context_class">thread</property>
+        <property name="hibernate.hbm2ddl.import_files">import.sql</property>
+
+        <mapping class="com.learning.project.pizza.entities.Items"/>
+        <mapping class="com.learning.project.pizza.entities.Pricing"/>
+        <mapping class="com.learning.project.pizza.entities.Customers"/>
+        <mapping class="com.learning.project.pizza.entities.NonVegItems"/>
+        <mapping class="com.learning.project.pizza.entities.VegItems"/>
+        <mapping class="com.learning.project.pizza.entities.OrderDetails"/>
+        <mapping class="com.learning.project.pizza.entities.Orders"/>
+        <!--        <mapping package="com.learning.project.pizza.entities"/>-->
+    </session-factory>
+</hibernate-configuration>
